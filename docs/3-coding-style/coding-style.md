@@ -6,10 +6,10 @@
 
 Rule | Description
 :--: | -----------
-1    | Keywords are written uppercase, names are written in lowercase.
-2    | 3 space indention[^2].
+1    | All code is written in lowercase.
+2    | 3 space indention.
 3    | One command per line.
-4    | Keywords `LOOP`, `ELSE`, `ELSIF`, `END IF`, `WHEN` on a new line.
+4    | Keywords `loop`, `else`, `elseif`, `end if`, `when` on a new line.
 5    | Commas in front of separated elements.
 6    | Call parameters aligned, operators aligned, values aligned.
 7    | SQL keywords are right aligned within a SQL command.
@@ -18,39 +18,89 @@ Rule | Description
 
 ### Example
 
-```
-PROCEDURE set_salary(in_employee_id IN employees.employee_id%TYPE) IS
-   CURSOR c_employees(p_employee_id IN employees.employee_id%TYPE) IS 
-      SELECT last_name
+```sql
+procedure set_salary(in_employee_id IN employee.employee_id%type) is
+   cursor c_employee(p_employee_id IN employee.employee_id%type) is 
+      select last_name
             ,first_name
             ,salary
-        FROM employees
-       WHERE employee_id = p_employee_id
-       ORDER BY last_name
-               ,first_name;
+        from employee
+       where employee_id = p_employee_id
+    order by last_name
+            ,first_name;
 
-   r_employee     c_employees%ROWTYPE;
-   l_new_salary   employees.salary%TYPE;
-BEGIN
-   OPEN  c_employees(p_employee_id => in_employee_id);
-   FETCH c_employees INTO r_employee;
-   CLOSE c_employees;
+   r_employee     c_employee%rowtype;
+   l_new_salary   employee.salary%type;
+begin
+   open  c_employee(p_employee_id => in_employee_id);
+   fetch c_employee INTO r_employee;
+   close c_employee;
 
    new_salary (in_employee_id => in_employee_id
               ,out_salary     => l_new_salary);
 
    -- Check whether salary has changed
-   IF r_employee.salary <> l_new_salary THEN
-      UPDATE employees
-         SET salary = l_new_salary
-       WHERE employee_id = in_employee_id;
-   END IF;
-END set_salary;
+   if r_employee.salary <> l_new_salary then
+      update employee
+         set salary = l_new_salary
+       where employee_id = in_employee_id;
+   end if;
+end set_salary;
 ```
 
 ## Code Commenting
 
-### Conventions
+### Commenting Goals
+
+Code comments are there to help future readers of the code (there is a good chance that future reader is you... Any code that you wrote six months to a year ago might as well have been written by someone else) understand how to use the code (especially in PL/SQL package specs) and how to maintain the code (especially in PL/SQL package bodies).
+
+### Package Version Function
+
+Each package should have a package_version function that returns a varchar2.
+
+#### Package Spec
+```
+--This function returns the version number of the package using the following rules:
+-- 1. If there is a major change that impacts multiple packages, increment the first digit, e.g. 03.05.09 -> 04.00.00
+-- 2. If there is a change to the package spec, increment the first dot, e.g. 03.02.05 -> 03.03.00
+-- 3. If there is a minor change, only to the package body, increment the last dot e.g. 03.02.05 -> 03.02.06
+-- 4. If the function returns a value ending in WIP, then the package is actively being worked on by a developer.
+function package_version return varchar2;
+```
+#### Package Body
+```
+-- Increment the version number based upon the following rules
+-- 1. If there is a major change that impacts multiple packages, increment the first digit, e.g. 03.05.09 -> 04.00.00
+-- 2. If there is a change to the package spec, increment the first dot, e.g. 03.02.05 -> 03.03.00
+-- 3. If there is a minor change, only to the package body, increment the last dot e.g. 03.02.05 -> 03.02.06
+-- 4. If a developer begins work on a package, increment the comment version and include the words 'IN PROGRESS' in 
+--    the new version line. Increment the return value and add WIP to the return value. Example:  return '01.00.01 WIP'  
+--    And then IMMEDIATELY push/commit & compile the package.
+--   As you are working on the package and make updates to lines, use the version number at the end of the line to indicate when 
+--  the line was changed. Example: l_person := 'Bob';  -- 01.00.01 Bob is the new person, was Joe.
+-- 5. Once work is complete, remove 'IN PROGRESS' from the comment and remove WIP from the return value.
+-- 6. If your work crosses the boundary of a sprint, having WIP in the return value will indicate that the package should not be promoted.
+function package_version return varchar2
+is
+begin
+  -- 01.00.00 YYYY-MM-DD First & Last Name  Initial Version
+  -- 01.00.01 YYYY-MM-DD First & Last Name  Fixed issue number 72 documented in Jira ticket 87: https://ourjiraurl.com/f?p=87
+   return '01.00.01' ;
+end package_version;
+```
+Some notes on the above: We are computer scientists, we write dates as YYYY-MM-DD, not DD-MON-RR or MON-DD-YYYY or any other way.
+
+If you are in the middle of an update, then the function would look like this:
+```
+[snip]
+  -- 01.00.00 YYYY-MM-DD First & Last Name  Initial Version
+  -- 01.00.01 YYYY-MM-DD First & Last Name  Fixed issue documented in Jira ticket 87: https://ourjiraurl.com/f?p=87
+  -- 01.00.02 2019-10-25 Rich Soule         IN PROGRESS Fixing issue documented in Jira ticket 90: https://ourjiraurl.com/f?p=90
+   return '01.00.02 WIP' ;
+end package_version;
+```
+
+### Commenting Conventions
 
 Inside a program unit only use the line commenting technique `--` unless you temporarly deactivate code sections for testing.
 
@@ -64,7 +114,7 @@ Tag      | Meaning                                                 | Example
 -------- | ------------------------------------------------------- | -------
 `param`  | Description of a parameter.                             | `@param in_string input string`
 `return` | Description of the return value of a function.          | `@return result of the calculation`
-`throws` | Describe errors that may be raised by the program unit. | `@throws NO_DATA_FOUND`
+`throws` | Describe errors that may be raised by the program unit. | `@throws no_data_found`
 
 ### Example
 
@@ -80,18 +130,8 @@ Check whether we passed a valid sql name
 
 <b>Call Example:</b>
 <pre>
-   SELECT TVDAssert.valid_sql_name('TEST') from dual;
-   SELECT TVDAssert.valid_sql_name('123') from dual
+   select tvdassert.valid_sql_name('TEST') from dual;
+   SELECT tvdassert.valid_sql_name('123') from dual
 </pre>
 */
 ```
-
-[^2]: 
-    Tabs are not used because the indentation depends on the editor configuration. 
-    We want to ensure that the code looks the same, indepenent of the editor used. 
-    Hence, no tabs. But why not use 8 spaces? That's the traditional value for a tab. 
-    When writing a package function the code in the body has an indentation of 3. 
-    That's 24 characters as a starting point for the code. We think it's too much. 
-    Especially if we try to keep a line below 100 or 80 characters. Other good options 
-    would be 2 or 4 spaces. We settled for 3 spaces as a compromise. 
-    The indentation is still good visible, but does not use to much space.

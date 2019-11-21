@@ -23,5 +23,17 @@ For an effective review, the following factors must be considered:
  
 Requirements for the reviewer: 
 
-* He must not be the owner of the code.
-* Code reviews may be unpleasant for the developer, as he could fear that his code will be criticized. If the critic is not considerate, the code writer will build up rejection and resistance against code reviews.
+* The reviewer must not be the owner of the code.
+* Code reviews may be unpleasant for the developer, as he or she could fear that code will be criticized. If the critic is not considerate, the code writer will build up rejection and resistance against code reviews.
+
+Precheck
+
+Developers should complete the following checklist prior to requesting a peer code review.
+
+*	Can I answer "Yes" to each of these questions?
+Did I take time to think about what I wanted to do before doing it? Would I pay for this? Can I defend my work / decisions I made?
+* NO sloppiness. Code is well formatted. Code is not duplicated in multiple places. Named variables. Tables have foreign keys (and associated indexes)...
+*	Run the APEX Advisor (if using APEX)
+*	Code is well commented.
+Package specs includes a description of what the procedure does and what the input variables represent. Package body includes comments throughout the code to indicate what is happening.
+*	The application includes end user help.
