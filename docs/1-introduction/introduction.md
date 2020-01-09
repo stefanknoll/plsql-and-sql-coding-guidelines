@@ -4,6 +4,8 @@ This document describes rules and recommendations for developing applications us
 
 SQL, including PL/SQL, code is fundamentally some of the most important code that Insum writes for our customers and partners. The difference between SQL that performs well and SQL that doesn't can be the difference between a successful system (our customers and partners) and a huge disappointment (Healthcare.gov's rollout for example).
 
+Overall, the most important thing when writing code, is that you must be able to defend your work.
+
 ## Scope
 
 This document applies to the PL/SQL and SQL language as used within ORACLE databases and tools, which access ORACLE databases.
