@@ -147,6 +147,6 @@ write_text "### Use dbms_application_info package to follow progress of a proces
 write_guidelines "4-language-usage/8-patterns/5-use-dbms-application-info-package-to-follow-progress-of-a-process" "####"
 write_file "5-complexity-analysis/complexity-analysis.md"
 write_file "6-code-reviews/code-reviews.md"
-write_file "7-tool-support/tool-support.md"
-write_file "9-appendix/appendix.md"
+# write_file "7-tool-support/tool-support.md"
+# write_file "9-appendix/appendix.md"
 convert_to_pdf

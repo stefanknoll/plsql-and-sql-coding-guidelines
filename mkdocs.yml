@@ -1,14 +1,14 @@
 site_name: PL/SQL & SQL Coding Guidelines
-site_url: https://trivadis.github.io/plsql-and-sql-coding-guidelines/
+site_url: https://insum-labs.github.io/plsql-and-sql-coding-guidelines/
 
 repo_name: trivadis/plsql-and-sql-coding-guidelines
-repo_url: https://github.com/trivadis/plsql-and-sql-coding-guidelines
+repo_url: https://github.com/insum-labs/plsql-and-sql-coding-guidelines
 edit_uri: ""
 
 theme:
   name: 'material'
   custom_dir: custom-theme
-  logo: images/trivadis-logo.svg
+  logo: images/insum-logo.png
   favicon: images/favicon.ico
   palette:
     primary: 'white'
@@ -29,9 +29,9 @@ extra:
   guideline_version: 4.0-SNAPSHOT
   social:
     - type: github-alt
-      link: https://github.com/Trivadis
+      link: https://github.com/insum-labs
     - type: twitter
-      link: https://twitter.com/trivadis
+      link: https://twitter.com/insumsolutions
 
 plugins:
   - search
