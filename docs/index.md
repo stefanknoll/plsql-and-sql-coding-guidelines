@@ -1,15 +1,6 @@
 # About
 
-## Foreword
-<img src="images/urban-lankes.png" style="padding-top:5px; padding-right:15px; padding-bottom:15px; padding-left:0px;" title="Urban Lankes" align="left" width="150px"/>
-In the I.T. world of today, robust and secure applications are becoming more and more important. Many business processes no longer work without I.T. and the dependence of businesses on their I.T. has grown tremendously, meaning we need robust and maintainable applications. An important requirement is to have standards and guidelines, which make it possible to maintain source code created by a number of people quickly and easily. This forms the basis of well functioning off- or on-shoring strategy, as it allows quality assurance to be carried out efficiently at the source. 
-
-Good standards and guidelines are based on the wealth of experience and knowledge gained from past (and future?) problems, such as those, which can arise in a cloud environment, for example.<br/>
-
-<img src="images/urban-lankes-signature.png" title="Urban Lankes" width="200px"/><br/>
-Urban Lankes<br/>
-President of the bord of directors<br/>
-Trivadis<br/>
+We all stand in the shoulders of giants. Many people have participated in the creation and refinement of these guidelines. Without the efforts from Roger Troller, Jörn Kulessa, Daniela Reiner, Richard Bushnell, Andreas Flubacher, Thomas Mauch, and Philipp Salvisberg, this guidelines document wouldn't be what it is today.
 
 ***
 
@@ -22,15 +13,6 @@ Steven Feuerstein<br/>
 Team Lead, Oracle Developer Advocates<br/>
 Oracle<br/><br/>
 
-***
-
-<img src="images/roger-troller.png" style="padding-top:5px; padding-right:15px; padding-bottom:15px; padding-left:0px;" title="Roger Troller" align="left" width="150px"/>Coding Guidelines are a crucial part of software development. It is a matter of fact, that code is more often read than written – therefore we should take efforts to ease the work of the reader, which is not necessarily the author.
-
-I am convinced that this standard may be a good starting point for your own guidelines.<br/><br/><br/>
-
-Roger Troller<br/>
-Senior Consultant<br/>
-finnova AG Bankware<br/>
 
 ***
 
@@ -50,26 +32,5 @@ The authors and publisher shall have neither liability nor responsibility to any
 
 Version | Who         | Date         | Comment
 --------|-------------|--------------|--------
-0.1     | Troller     | 17.03.2009   | Created.
-0.1     | Troller     | 17.03.2009   | Created.
-0.2     | Kulessa     | 04.05.2009   | Extended.
-0.3     | Reiner      | 12.05.2009   | Extended with comments in code.
-0.4     | Troller     | 14.05.2009   | Extended formatting.
-0.5     | Kulessa     | 20.05.2009   | Added more CodeXpert rules.
-0.6     | Troller     | 22.05.2009   | Formatting changes. Added categories to rules.
-0.7     | Reiner      | 10.06.2009   | Extended with example code commenting.
-0.8     | Troller     | 18.06.2009   | Finalized.
-0.9     | Bushnell    | 23.06.2009   | Translation.
-1.0     | Troller     | 01.07.2009   | Ready for inspection.
-1.1     | Troller     | 19.08.2009   | Added Inspection results AFl.
-1.2     | Troller     | 21.08.2009   | Added Inspection results ThM.
-1.3     | Troller     | April 2010   | Several Corrections. New Rule Oracle Supplied Packages.
-1.3.1   | Troller     | October 2010 | Some formatting.
-2.0     | Troller     | August 2011  | Added Error Handling Section. Added rule 23, 30, 31, 43.
-3.0     | Troller     | January 2016 | Added Rules for ORACLE 12c. Added SQALE Metrics. New guideline numbering system.
-3.1     | Troller     | April 2016   | Corrections
-3.2     | Salvisberg  | January 2017 | Various small corrections
-3.3     | Salvisberg  | 07.07.2018   | Migrated from Microsoft Word document to [MkDocs](https://www.mkdocs.org/), added missing reasons, prefixed rules with "G-" as in PL/SQL Cop.
-3.4     |             |              | work in progress
-1.0     | Soule       | 2019.09.12   | Forked from the Trivadis standards with many updates due to coding style and minor updates to grammar.
+1.0     | Soule       | 2019.09.12   | Forked from the [Trivadis](https://trivadis.github.io/plsql-and-sql-coding-guidelines/) standards with many updates due to coding style and minor updates to grammar.
 

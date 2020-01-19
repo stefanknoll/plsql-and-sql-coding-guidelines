@@ -36,12 +36,8 @@ Please file your bug reports, enhancement requests, questions and other support 
 ## How to Contribute
 
 1. Describe your idea by [submitting an issue]()
-2. [Fork the utPLSQL-SQLDeveloper respository]()
-3. [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), commit and publish your changes and enhancements
-4. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/)
-
-## Related Resources
-* [DOAG PL/SQL Conventions](https://github.com/Doag/PL-SQL-Conventions)
+2. [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), commit and publish your changes and enhancements
+3. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/)
 
 ## License
 
