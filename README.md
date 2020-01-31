@@ -14,7 +14,7 @@ HTML is the primary output format. [Material for MkDocs](https://squidfunk.githu
 Link                                                                 | Content
 -------------------------------------------------------------------- | -------
 Coming Soon                                                          | Latest Release
-Coming Soon                                                          | Current version based on the master branch, typically a snapshot version of the coming release
+[Snapshot](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/master/) | Current version based on the master branch, typically a snapshot version of the coming release
 
 ## PDF format
 
