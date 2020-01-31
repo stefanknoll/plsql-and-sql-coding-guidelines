@@ -203,12 +203,12 @@ Examples:
 * `sct_incentive_module`
 
 Reason: Singular names have the following advantages over plural names:
-1) In general, tables represent entities. Entities are singular. This encourages the art of Entity-Relationship modeling.
-2) If all table names are singular, then you don't have to know if a table has a single row or multiple rows before you use it.
-3) Plural names can be vastly different from singular names. What is the plural of news? lotus? knife? cactus? nucleus? There are so many words that are difficult and nonstandard to pluralize that it can add significant work to a project to 'figure out the plurals'.
-4) For non-native speakers of whatever language is being used for table names, point number 3 is magnified significantly.
-5) Plurals add extra unnecessary length to table names.
-6) Bar far the biggest reason: There is no value in going through all the work to plural a table name. SQL statements often deal with a single row from a table with multiple rows, so you can't make the argument that `employees` is better than `employee` 'because the SQL will read better'.
+1. In general, tables represent entities. Entities are singular. This encourages the art of Entity-Relationship modeling.
+2. If all table names are singular, then you don't have to know if a table has a single row or multiple rows before you use it.
+3. Plural names can be vastly different from singular names. What is the plural of news? lotus? knife? cactus? nucleus? There are so many words that are difficult and nonstandard to pluralize that it can add significant work to a project to 'figure out the plurals'.
+4. For non-native speakers of whatever language is being used for table names, point number 3 is magnified significantly.
+5. Plurals add extra unnecessary length to table names.
+6. By far the biggest reason: There is no value in going through all the work to plural a table name. SQL statements often deal with a single row from a table with multiple rows, so you can't make the argument that `employees` is better than `employee` 'because the SQL will read better'.
 
 Example (bad):
 ```
