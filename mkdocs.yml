@@ -8,11 +8,11 @@ edit_uri: ""
 theme:
   name: 'material'
   custom_dir: custom-theme
-  logo: images/insum-logo.png
+  logo: images/insum-logo-inverted.png
   favicon: images/favicon.ico
   palette:
-    primary: 'white'
-    accent: 'red'
+    primary: 'light-green'
+    accent: 'green'
 
 extra_css:
   - 'stylesheets/extra.css'
@@ -22,11 +22,13 @@ extra_javascript:
 
 markdown_extensions:
   - admonition
+  - codehilite:
+      linenums: true
   - pymdownx.arithmatex
   - footnotes
 
 extra:
-  guideline_version: 4.0-SNAPSHOT
+  guideline_version: 1.0
   social:
     - type: github-alt
       link: https://github.com/insum-labs

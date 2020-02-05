@@ -1,23 +1,35 @@
 .md-typeset a {
-    color: #ff1744;
+    color: #8dc53e;
     word-break: break-word;
     text-decoration: none;
 }
+.md-header-nav__button.md-logo {
+    padding: 2px 0;
+    margin: 2px 0;
+}
+.md-logo img {
+    max-height: 1.7em;
+}
 
-[data-md-color-accent=red] .md-typeset a:hover {
-    color: #ff1744;
+[data-md-color-primary=light-green] .md-header,
+[data-md-color-primary=light-green] .md-hero {
+    background-color: #8dc53e;
+}
+
+[data-md-color-accent=green] .md-typeset a:hover {
+    color: #8dc53e;
     word-break: break-word;
     text-decoration: underline;
 }
 
 .md-nav__link--active, 
 .md-nav__link:active {
-    color: #ff1744;
+    color: #8dc53e;
     text-decoration: none;
 }
 
-[data-md-color-accent=red] .md-nav__link:hover {
-    color: #ff1744;
+[data-md-color-accent=green] .md-nav__link:hover {
+    color: #8dc53e;
     text-decoration: underline;
 }
 
