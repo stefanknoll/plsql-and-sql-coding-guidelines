@@ -1,14 +1,12 @@
-# Introduction
+# Document Conventions
 
 This document describes rules and recommendations for developing applications using the PL/SQL & SQL Language.
-
-SQL, including PL/SQL, code is fundamentally some of the most important code that Insum writes for our customers and partners. The difference between SQL that performs well and SQL that doesn't can be the difference between a successful system (our customers and partners) and a huge disappointment (Healthcare.gov's rollout for example, not done by Insum...).
 
 ## Scope
 
 This document applies to the PL/SQL and SQL language as used within ORACLE databases and tools, which access ORACLE databases.
 
-## Document Conventions
+## SQALE
 
 SQALE (Software Quality Assessment based on Lifecycle Expectations) is a method to support the evaluation of a software application source code. It is a generic method, independent of the language and source code analysis tools.
 
@@ -53,19 +51,3 @@ Try         | Emphasizes that the rule should be attempted whenever possible and
 Example     | Precedes text used to illustrate a rule or a recommendation.
 Reason      | Explains the thoughts and purpose behind a rule or a recommendation.
 Restriction | Describes the circumstances to be fulfilled to make use of a rule.
-
-### Why are standards important
-
-For a machine executing a program, code formatting is of no importance. However, for the human eye, well-formatted code is much easier to read. Modern tools can help to implement format and coding rules.
-
-Implementing formatting and coding standards has the following advantages for PL/SQL development:
-
-* Well-formatted code is easier to read, analyze and maintain (not only for the author but also for other developers).
-* The developers do not have to define their own guidelines - it is already defined.
-* The code has a structure that makes it easier to avoid making errors.
-* The code is more efficient concerning performance and organization of the whole application.
-* The code is more modular and thus easier to use for other applications.
-
-This document only defines possible standards. These standards are not written in stone, but are meant as guidelines. If standards already exist, and they are different from those in this document, it makes no sense to change them unless the existing standards have fundamental flaws that would decrease performance and/or significantly decrease the maintainability of code. Almost every system has a mixture of "code that follows the standards" and "code that doesn't follow the standards". Gental migration over time to follow a good set of reasonable standards will always be much better than giving up because standards were not followed in the past.
-
-Overall, the most important thing when writing good code is that you must be able to defend your work.
