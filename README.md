@@ -28,6 +28,10 @@ Please file your bug reports, enhancement requests, questions and other support 
 
 HTML is the primary output format. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is used to generate static HTML files and [Mike](https://github.com/jimporter/mike) to publish version specific variants.
 
+### PDF format
+
+PDF is the secondary output format. [wkhtmltopdf](https://wkhtmltopdf.org/) is used to generate the [Insum-PLSQL-and-SQL-Coding-Guidelines.pdf]
+
 ### Build Steps
 
 1. Install Docker in your environment
