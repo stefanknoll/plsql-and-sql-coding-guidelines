@@ -23,7 +23,7 @@ function write_file(){
     sed -e 's/..\/image/image/g' ${DATA_DIR}/docs/${FILE} | \
         sed -e 's|../../4-language-usage/2-variables-and-types/1-general/g-2150|#g-2150-avoid-comparisons-with-null-value-consider-using-is-not-null|g' | \
         sed -e 's|../../3-coding-style/coding-style/#rules|#rules|g' | \
-        sed -e 's|PLSQL-and-SQL-Coding-Guidelines.pdf||g' | \
+        sed -e 's|Insum-PLSQL-and-SQL-Coding-Guidelines.pdf||g' | \
         sed -e 's/&#10008;/X/g' >> ${TARGET_DIR}/docs/index.md
 }
 
@@ -75,7 +75,7 @@ function convert_to_pdf(){
                 cover ../docs/cover.html \
                 toc \
                 --xsl-style-sheet stylesheets/toc.xsl \
-                index.html ${DATA_DIR}/docs/9-appendix/PLSQL-and-SQL-Coding-Guidelines.pdf
+                index.html ${DATA_DIR}/docs/Insum-PLSQL-and-SQL-Coding-Guidelines.pdf
 }
 
 DATA_DIR="$(cd "$(dirname "${0}")/../.." && pwd)"
@@ -147,6 +147,6 @@ write_text "### Use dbms_application_info package to follow progress of a proces
 write_guidelines "4-language-usage/8-patterns/5-use-dbms-application-info-package-to-follow-progress-of-a-process" "####"
 write_file "6-code-reviews/code-reviews.md"
 # write_file "7-tool-support/tool-support.md"
-write_text "## Appendix"
-write_file "9-appendix/appendix.md"
+# write_text "## Appendix"
+# write_file "9-appendix/appendix.md"
 convert_to_pdf
