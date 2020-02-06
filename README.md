@@ -8,7 +8,7 @@ Trivadis published their guidelines for PL/SQL &amp; SQL in 2009 in the context 
 
 Link                                                                 | Content
 -------------------------------------------------------------------- | -------
-[v1.0](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/master/) | Latest Release
+[v1.0](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/) | Latest Release
 [Snapshot](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/master/) | Current version based on the master branch, typically a snapshot version of the coming release
 
 ## Issues
@@ -47,9 +47,9 @@ HTML is the primary output format. [Material for MkDocs](https://squidfunk.githu
    * Test the HTML site locally
      run `./serve.sh` and open [http://localhost:8000](http://localhost:8000)
    * Deploy HTML site
-     run `./mike.sh deploy [version]`.
+     run `./mike.sh deploy {version here}`.
    * Set default version (HTML redirect)
-     run `./mike.sh set-default [version]`.
+     run `./mike.sh set-default {version here}`.
 6. `commit` changes and `push` all branches.
    * `git commit`
    * `git push --all origin`
