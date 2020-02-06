@@ -6,24 +6,10 @@ In 2019, Rich Soule of Insum forked these guidelines from the Trivadis guidlines
 
 Trivadis published their guidelines for PL/SQL &amp; SQL in 2009 in the context of the DOAG conference in Nuremberg. Since then these guidelines have been continuously extended and improved. Now they are managed as a set of markdown files. This makes the the guidelines more adaptable for individual application needs and simplifies the continous improvement.
 
-## HTML format
-
-Coming Soon!
-HTML is the primary output format. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is used to generate static HTML files and [Mike](https://github.com/jimporter/mike) to publish version specific variants. The following sites are available:
-
 Link                                                                 | Content
 -------------------------------------------------------------------- | -------
-Coming Soon                                                          | Latest Release
+[v1.0](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/master/) | Latest Release
 [Snapshot](https://insum-labs.github.io/plsql-and-sql-coding-guidelines/master/) | Current version based on the master branch, typically a snapshot version of the coming release
-
-## PDF format
-
-Coming Soon                                                         
-PDF is the secondary output format. [wkhtmltopdf](https://wkhtmltopdf.org/) is used to generate the [PLSQL-and-SQL-Coding-Guidelines.pdf]
-
-## Releases
-
-Coming Soon
 
 ## Issues
 Please file your bug reports, enhancement requests, questions and other support requests within [Github's issue tracker](https://help.github.com/articles/about-issues/).
@@ -39,7 +25,13 @@ Please file your bug reports, enhancement requests, questions and other support 
 2. [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), commit and publish your changes and enhancements
 3. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/)
 
-## How to Build the HTML Site and PDF File
+## How to Build the HTML Site
+
+### About the HTML site and process
+
+HTML is the primary output format. [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is used to generate static HTML files and [Mike](https://github.com/jimporter/mike) to publish version specific variants.
+
+### Build Steps
 
 1. Install Docker in your environment
    * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
@@ -55,12 +47,13 @@ Please file your bug reports, enhancement requests, questions and other support 
    * Test the HTML site locally
      run `./serve.sh` and open [http://localhost:8000](http://localhost:8000)
    * Deploy HTML site
-     run `./mike.sh deploy master`.
+     run `./mike.sh deploy [version]`.
    * Set default version (HTML redirect)
-     run `./mike.sh set-default master`.
+     run `./mike.sh set-default [version]`.
 6. `commit` changes and `push` all branches.
    * `git commit`
    * `git push --all origin`
+
 
 ## License
 
