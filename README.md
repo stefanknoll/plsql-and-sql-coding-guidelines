@@ -30,7 +30,7 @@ HTML is the primary output format. [Material for MkDocs](https://squidfunk.githu
 
 ### PDF format
 
-PDF is the secondary output format. [wkhtmltopdf](https://wkhtmltopdf.org/) is used to generate the [Insum-PLSQL-and-SQL-Coding-Guidelines.pdf]
+PDF is the secondary output format. [wkhtmltopdf](https://wkhtmltopdf.org/) is used to generate the [Insum-PLSQL-and-SQL-Coding-Guidelines.pdf](Insum-PLSQL-and-SQL-Coding-Guidelines.pdf)
 
 ### Build Steps
 
