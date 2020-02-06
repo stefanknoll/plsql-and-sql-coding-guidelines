@@ -14,14 +14,11 @@ Link                                                                 | Content
 ## Issues
 Please file your bug reports, enhancement requests, questions and other support requests within [Github's issue tracker](https://help.github.com/articles/about-issues/).
 
-* [Questions]()
-* [Open enhancements]()
-* [Open bugs]()
-* [Submit new issue]()
+* [Submit new issue](https://github.com/insum-labs/plsql-and-sql-coding-guidelines/issues)
 
 ## How to Contribute
 
-1. Describe your idea by [submitting an issue]()
+1. Describe your idea by [submitting an issue](https://github.com/insum-labs/plsql-and-sql-coding-guidelines/issues)
 2. [Create a branch](https://help.github.com/articles/creating-and-deleting-branches-within-your-repository/), commit and publish your changes and enhancements
 3. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/)
 
