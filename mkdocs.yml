@@ -34,6 +34,8 @@ extra:
       link: https://github.com/insum-labs
     - type: twitter
       link: https://twitter.com/insumsolutions
+  search:
+      language: 'en, fr, es'
 
 plugins:
   - search
