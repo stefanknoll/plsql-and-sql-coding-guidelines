@@ -4,11 +4,11 @@
     text-decoration: none;
 }
 .md-header-nav__button.md-logo {
-    padding: 2px 0;
+    padding: 4px 0;
     margin: 2px 0;
 }
 .md-logo img {
-    max-height: 1.7em;
+    max-height: 1.4em;
 }
 
 [data-md-color-primary=light-green] .md-header,
