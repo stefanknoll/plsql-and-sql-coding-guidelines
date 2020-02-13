@@ -33,7 +33,7 @@ procedure set_salary(in_employee_id IN employee.employee_id%type) is
    l_new_salary   employee.salary%type;
 begin
    open  c_employee(p_employee_id => in_employee_id);
-   fetch c_employee INTO r_employee;
+   fetch c_employee into r_employee;
    close c_employee;
 
    new_salary (in_employee_id => in_employee_id
@@ -131,7 +131,7 @@ Check whether we passed a valid sql name
 <b>Call Example:</b>
 <pre>
    select tvdassert.valid_sql_name('TEST') from dual;
-   SELECT tvdassert.valid_sql_name('123') from dual
+   select tvdassert.valid_sql_name('123') from dual
 </pre>
 */
 ```
