@@ -22,7 +22,7 @@ Implementing formatting and coding standards has the following advantages for PL
 * The code is more efficient concerning performance and organization of the whole application.
 * The code is more modular and thus easier to use for other applications.
 
-This document only defines possible standards. These standards are not written in stone, but are meant as guidelines. If standards already exist, and they are different from those in this document, it makes no sense to change them unless the existing standards have fundamental flaws that would decrease performance and/or significantly decrease the maintainability of code. Almost every system has a mixture of "code that follows the standards" and "code that doesn't follow the standards". Gental migration over time to follow a good set of reasonable standards will always be much better than giving up because standards were not followed in the past.
+This document only defines possible standards. These standards are not written in stone, but are meant as guidelines. If standards already exist, and they are different from those in this document, it makes no sense to change them unless the existing standards have fundamental flaws that would decrease performance and/or significantly decrease the maintainability of code. Almost every system has a mixture of "code that follows the standards" and "code that doesn't follow the standards". Gentle migration over time to follow a good set of reasonable standards will always be much better than giving up because standards were not followed in the past.
 
 Overall, the most important thing when writing good code is that you must be able to defend your work.
 
