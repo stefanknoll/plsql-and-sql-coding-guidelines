@@ -56,7 +56,9 @@ Code comments are there to help future readers of the code (there is a good chan
 
 ### Package Version Function
 
-Each package should have a package_version function that returns a varchar2.
+Each package could have a package_version function that returns a varchar2. 
+
+Note: If you are using a version control system (like Git for example) to track all code changes and you feel that you'll be able to track everything below using your version control system, and everyone that might need to figure out 'what is happening', from all developers to purely operational DBAs, knows how to use the version control system to figure out the below, then you might consider the below redundant and 'extra work'. If so, feel free not implement this function.
 
 #### Package Spec
 ```
