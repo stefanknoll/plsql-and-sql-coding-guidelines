@@ -18,7 +18,7 @@ In general, ORACLE is not case sensitive with names. A variable named personname
 
 A widely used convention is to follow a `{prefix}variablecontent{suffix}` pattern.
 
-The following table shows a possible set of naming conventions. 
+The following table shows a *possible* set of naming conventions. 
 
 Identifier                   | Prefix | Suffix  | Example
 ---------------------------- | ------ | ------- | --------
