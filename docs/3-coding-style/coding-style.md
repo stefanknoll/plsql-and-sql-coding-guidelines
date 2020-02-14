@@ -74,7 +74,7 @@ Tag      | Meaning                                                 | Example
 
 This is an example using the documentation capabilities of SQL Developer. 
 
-```
+```sql
 /**
 Check whether we passed a valid sql name
 
@@ -96,7 +96,7 @@ Each package could have a package_version function that returns a varchar2.
 Note: If you are using a version control system (like Git for example) to track all code changes and you feel that you'll be able to track everything below using your version control system, and everyone that might need to figure out 'what is happening', from all developers to purely operational DBAs, knows how to use the version control system to figure out the below, then you might consider the below redundant and 'extra work'. If so, feel free not implement this function.
 
 #### Package Spec
-```
+```sql
 --This function returns the version number of the package using the following rules:
 -- 1. If there is a major change that impacts multiple packages, increment the first digit, e.g. 03.05.09 -> 04.00.00
 -- 2. If there is a change to the package spec, increment the first dot, e.g. 03.02.05 -> 03.03.00
@@ -105,7 +105,7 @@ Note: If you are using a version control system (like Git for example) to track 
 function package_version return varchar2;
 ```
 #### Package Body
-```
+```sql
 -- Increment the version number based upon the following rules
 -- 1. If there is a major change that impacts multiple packages, increment the first digit, e.g. 03.05.09 -> 04.00.00
 -- 2. If there is a change to the package spec, increment the first dot, e.g. 03.02.05 -> 03.03.00
@@ -128,7 +128,7 @@ end package_version;
 Some notes on the above: We are computer scientists, we write dates as YYYY-MM-DD, not DD-MON-RR or MON-DD-YYYY or any other way.
 
 If you are in the middle of an update, then the function would look like this:
-```
+``` sql
 [snip]
   -- 01.00.00 YYYY-MM-DD First & Last Name  Initial Version
   -- 01.00.01 YYYY-MM-DD First & Last Name  Fixed issue documented in Jira ticket 87: https://ourjiraurl.com/f?p=87
