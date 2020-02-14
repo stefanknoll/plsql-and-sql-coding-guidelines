@@ -128,7 +128,7 @@ end package_version;
 Some notes on the above: We are computer scientists, we write dates as YYYY-MM-DD, not DD-MON-RR or MON-DD-YYYY or any other way.
 
 If you are in the middle of an update, then the function would look like this:
-``` sql
+```sql
 [snip]
   -- 01.00.00 YYYY-MM-DD First & Last Name  Initial Version
   -- 01.00.01 YYYY-MM-DD First & Last Name  Fixed issue documented in Jira ticket 87: https://ourjiraurl.com/f?p=87
