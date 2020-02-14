@@ -54,6 +54,41 @@ end set_salary;
 
 Code comments are there to help future readers of the code (there is a good chance that future reader is you... Any code that you wrote six months to a year ago might as well have been written by someone else) understand how to use the code (especially in PL/SQL package specs) and how to maintain the code (especially in PL/SQL package bodies).
 
+### Commenting Conventions
+
+Inside a program unit only use the line commenting technique `--` unless you temporarly deactivate code sections for testing.
+
+To comment the source code for later document generation, comments like `/** ... */` are used. Within these documentation comments, tags may be used to define the documentation structure.
+
+Tools like ORACLE SQL Developer or PL/SQL Developer include documentation functionality based on a javadoc-like tagging. 
+
+### Commenting Tags
+
+Tag      | Meaning                                                 | Example
+-------- | ------------------------------------------------------- | -------
+`param`  | Description of a parameter.                             | `@param in_string input string`
+`return` | Description of the return value of a function.          | `@return result of the calculation`
+`throws` | Describe errors that may be raised by the program unit. | `@throws no_data_found`
+
+### Example
+
+This is an example using the documentation capabilities of SQL Developer. 
+
+```
+/**
+Check whether we passed a valid sql name
+
+@param   in_name  string to be checked
+@return  in_name if the string represents a valid sql name
+@throws  ORA-44003: invalid SQL name 
+
+<b>Call Example:</b>
+<pre>
+   select tvdassert.valid_sql_name('TEST') from dual;
+   select tvdassert.valid_sql_name('123') from dual
+</pre>
+*/
+```
 ### Package Version Function
 
 Each package could have a package_version function that returns a varchar2. 
@@ -100,40 +135,4 @@ If you are in the middle of an update, then the function would look like this:
   -- 01.00.02 2019-10-25 Rich Soule         IN PROGRESS Fixing issue documented in Jira ticket 90: https://ourjiraurl.com/f?p=90
    return '01.00.02 WIP' ;
 end package_version;
-```
-
-### Commenting Conventions
-
-Inside a program unit only use the line commenting technique `--` unless you temporarly deactivate code sections for testing.
-
-To comment the source code for later document generation, comments like `/** ... */` are used. Within these documentation comments, tags may be used to define the documentation structure.
-
-Tools like ORACLE SQL Developer or PL/SQL Developer include documentation functionality based on a javadoc-like tagging. 
-
-### Commenting Tags
-
-Tag      | Meaning                                                 | Example
--------- | ------------------------------------------------------- | -------
-`param`  | Description of a parameter.                             | `@param in_string input string`
-`return` | Description of the return value of a function.          | `@return result of the calculation`
-`throws` | Describe errors that may be raised by the program unit. | `@throws no_data_found`
-
-### Example
-
-This is an example using the documentation capabilities of SQL Developer. 
-
-```
-/**
-Check whether we passed a valid sql name
-
-@param   in_name  string to be checked
-@return  in_name if the string represents a valid sql name
-@throws  ORA-44003: invalid SQL name 
-
-<b>Call Example:</b>
-<pre>
-   select tvdassert.valid_sql_name('TEST') from dual;
-   select tvdassert.valid_sql_name('123') from dual
-</pre>
-*/
 ```
