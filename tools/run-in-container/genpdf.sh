@@ -17,11 +17,12 @@ function create_cover() {
         | sed -e "s/#YEAR#/$(date +'%Y')/g" > ${TARGET_DIR}/docs/cover.html
 }
 
+# sed -e 's|../../3-coding-style/coding-style/#rules|#rules|g' | \
+
 function write_file(){
     FILE=$1
     echo "" >> ${TARGET_DIR}/docs/index.md
     sed -e 's/..\/image/image/g' ${DATA_DIR}/docs/${FILE} | \
-        sed -e 's|../../3-coding-style/coding-style/#rules|#rules|g' | \
         sed -e 's|Insum-PLSQL-and-SQL-Coding-Guidelines.pdf||g' | \
         sed -e 's/&#10008;/X/g' >> ${TARGET_DIR}/docs/index.md
 }
@@ -84,10 +85,10 @@ create_target_dir
 copy_resources
 create_cover
 write_file "index.md"
-write_file "1-introduction/introduction.md"
+write_file "1-document-conventions/1-document-conventions.md"
 write_file "2-naming-conventions/naming-conventions.md"
-write_text "## Coding Style"
-write_guidelines "3-coding-style/" "####"
+write_text "# Coding Style"
+write_guidelines "3-Coding-style" "##"
 write_text "# Language Usage"
 write_text "## General"
 write_guidelines "4-language-usage/1-general" "###"

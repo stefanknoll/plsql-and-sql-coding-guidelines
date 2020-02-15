@@ -1,4 +1,4 @@
-# Coding Style
+# General Style
 
 ## Formatting
 
@@ -19,15 +19,16 @@ Rule | Description
 ### Example
 
 ```sql
-procedure set_salary(in_employee_id IN employee.employee_id%type) is
+procedure set_salary(in_employee_id IN employee.employee_id%type)
+is
    cursor c_employee(p_employee_id IN employee.employee_id%type) is 
       select last_name
-            ,first_name
-            ,salary
+           , first_name
+           , salary
         from employee
        where employee_id = p_employee_id
     order by last_name
-            ,first_name;
+           , first_name;
 
    r_employee     c_employee%rowtype;
    l_new_salary   employee.salary%type;
@@ -37,7 +38,7 @@ begin
    close c_employee;
 
    new_salary (in_employee_id => in_employee_id
-              ,out_salary     => l_new_salary);
+             , out_salary     => l_new_salary);
 
    -- Check whether salary has changed
    if r_employee.salary <> l_new_salary then
@@ -48,52 +49,11 @@ begin
 end set_salary;
 ```
 
-## Code Commenting
-
-### Commenting Goals
-
-Code comments are there to help future readers of the code (there is a good chance that future reader is you... Any code that you wrote six months to a year ago might as well have been written by someone else) understand how to use the code (especially in PL/SQL package specs) and how to maintain the code (especially in PL/SQL package bodies).
-
-### Commenting Conventions
-
-Inside a program unit only use the line commenting technique `--` unless you temporarly deactivate code sections for testing.
-
-To comment the source code for later document generation, comments like `/** ... */` are used. Within these documentation comments, tags may be used to define the documentation structure.
-
-Tools like ORACLE SQL Developer or PL/SQL Developer include documentation functionality based on a javadoc-like tagging. 
-
-### Commenting Tags
-
-Tag      | Meaning                                                 | Example
--------- | ------------------------------------------------------- | -------
-`param`  | Description of a parameter.                             | `@param in_string input string`
-`return` | Description of the return value of a function.          | `@return result of the calculation`
-`throws` | Describe errors that may be raised by the program unit. | `@throws no_data_found`
-
-### Example
-
-This is an example using the documentation capabilities of SQL Developer. 
-
-```sql
-/**
-Check whether we passed a valid sql name
-
-@param   in_name  string to be checked
-@return  in_name if the string represents a valid sql name
-@throws  ORA-44003: invalid SQL name 
-
-<b>Call Example:</b>
-<pre>
-   select tvdassert.valid_sql_name('TEST') from dual;
-   select tvdassert.valid_sql_name('123') from dual
-</pre>
-*/
-```
 ### Package Version Function
 
-Each package could have a package_version function that returns a varchar2. 
+When version control is not available, each package could have a `package_version` function that returns a varchar2. 
 
-Note: If you are using a version control system (like Git for example) to track all code changes and you feel that you'll be able to track everything below using your version control system, and everyone that might need to figure out 'what is happening', from all developers to purely operational DBAs, knows how to use the version control system to figure out the below, then you might consider the below redundant and 'extra work'. If so, feel free not implement this function.
+Note: If you are using a version control system (like Git for example) to track all code changes and you feel that you'll be able to track everything below using your version control system, and everyone that might need to figure out 'what is happening', from all developers to purely operational DBAs, knows how to use the version control system to figure out the below, then you might consider the below redundant and '_extra work_'. If so, feel free not implement this function.
 
 #### Package Spec
 ```sql
@@ -104,7 +64,9 @@ Note: If you are using a version control system (like Git for example) to track 
 -- 4. If the function returns a value ending in WIP, then the package is actively being worked on by a developer.
 function package_version return varchar2;
 ```
+
 #### Package Body
+
 ```sql
 -- Increment the version number based upon the following rules
 -- 1. If there is a major change that impacts multiple packages, increment the first digit, e.g. 03.05.09 -> 04.00.00
@@ -125,9 +87,11 @@ begin
    return '01.00.01' ;
 end package_version;
 ```
+
 Some notes on the above: We are computer scientists, we write dates as YYYY-MM-DD, not DD-MON-RR or MON-DD-YYYY or any other way.
 
 If you are in the middle of an update, then the function would look like this:
+
 ```sql
 [snip]
   -- 01.00.00 YYYY-MM-DD First & Last Name  Initial Version
@@ -136,3 +100,4 @@ If you are in the middle of an update, then the function would look like this:
    return '01.00.02 WIP' ;
 end package_version;
 ```
+
