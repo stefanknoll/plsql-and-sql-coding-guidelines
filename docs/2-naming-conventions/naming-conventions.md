@@ -29,9 +29,9 @@ Record                       | `r_`   |         | `r_employee`
 Array / Table                | `t_`   |         | `t_employee`
 Object                       | `o_`   |         | `o_employee`
 Cursor Parameter             | `p_`   |         | `p_empno`
-In Parameter                 | `in_`  |         | `in_empno`
-Out Parameter                | `out_` |         | `out_ename`
-In/Out Parameter             | `io_`  |         | `io_employee`
+In Parameter                 | `p_` \| `in_`  |  | `p_empno`
+Out Parameter                | `x_` \| `out_` |  | `x_ename`
+In/Out Parameter             | `x_` \| `io_`  |  | `io_employee`
 Record Type Definitions      | `r_`   | `_type` | `r_employee_type`
 Array/Table Type Definitions | `t_`   | `_type` | `t_employee_type`
 Exception                    | `e_`   |         | `e_employee_exists`
