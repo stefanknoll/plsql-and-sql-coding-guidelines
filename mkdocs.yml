@@ -28,7 +28,7 @@ markdown_extensions:
   - footnotes
 
 extra:
-  guideline_version: 1.0
+  guideline_version: 1.1
   social:
     - type: github-alt
       link: https://github.com/insum-labs
