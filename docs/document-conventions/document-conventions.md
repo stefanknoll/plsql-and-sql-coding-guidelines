@@ -1,5 +1,3 @@
-# Document Conventions
-
 This document describes rules and recommendations for developing applications using the PL/SQL & SQL Language.
 
 ## Scope

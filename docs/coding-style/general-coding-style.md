@@ -1,5 +1,3 @@
-# General Style
-
 ## Formatting
 
 ### Rules

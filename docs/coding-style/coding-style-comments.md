@@ -1,5 +1,3 @@
-# Comments Style
-
 ## Commenting Goals
 
 Code comments are there to help future readers of the code (there is a good chance that future reader is you... Any code that you wrote six months to a year ago might as well have been written by someone else) understand how to use the code (especially in PL/SQL package specs) and how to maintain the code (especially in PL/SQL package bodies).

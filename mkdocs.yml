@@ -5,14 +5,54 @@ repo_name: stefanknoll/plsql-and-sql-coding-guidelines
 repo_url: https://github.com/stefanknoll/plsql-and-sql-coding-guidelines.git
 edit_uri: ""
 
+copyright: Primus Solutions AG 2024
+
 theme:
   name: material
-  #logo: images/insum-logo-inverted.png
-  logo: images/pdg_logo.png
+  #logo: images/pdg_logo.png
+  logo: images/pdg-logo__243x78@2x.png
   favicon: images/favicon.ico
+
+  icon:
+    annotation: material/arrow-right-circle 
+
   palette:
-    primary: 'light-green'
-    accent: 'green'
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: light-green
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: light-green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light-green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  font:
+    text: Roboto
+    code: Source Code Pro
+
+  language: de
+  features:
+    - navigation.instant
+    - navigation.footer
+    - navigation.path
+    - content.code.select
+    - content.code.copy
+    - content.code.annotate
 
 extra_css:
   - 'stylesheets/extra.css'
@@ -21,19 +61,40 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 markdown_extensions:
+  - toc:
+      permalink: "#"
+      baselevel: 2
+      separator: "_"
   - admonition
-  - codehilite:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
       linenums: true
-  - pymdownx.arithmatex
+      auto_title: true
+  - pymdownx.tasklist
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.snippets
   - footnotes
+  - meta
+  - attr_list
+  - md_in_html
+  - pymdownx.arithmatex
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
   guideline_version: 1.1
   social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/insum-labs
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/insumsolutions
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/primus-delphi-group
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UC2FwygVDwhSOCiF7yn3UUtQ
   search:
       language: 'en, fr, es'
 

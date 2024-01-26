@@ -1,5 +1,3 @@
-# Naming Conventions
-
 ## General Guidelines
 
 1. Never use names with a leading numeric character.
