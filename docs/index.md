@@ -1,14 +1,11 @@
-# Introduction to the Insum PL/SQL and SQL Coding Guidelines
+# Introduction to the Primus Solutions PL/SQL and SQL Coding Guidelines
 
 SQL and PL/SQL code is fundamentally some of the most important code that Insum writes for our customers and partners. The difference between SQL and PL/SQL that performs well and that doesn't can be the difference between a successful system (our customers and partners) and a huge disappointment (Healthcare.gov's rollout for example, not done by Insum...).
 
-For a PDF version of these guidelines use [Insum-PLSQL-and-SQL-Coding-Guidelines.pdf](Insum-PLSQL-and-SQL-Coding-Guidelines.pdf)
+For a PDF version of these guidelines use [Primus-PLSQL-and-SQL-Coding-Guidelines.pdf](Primus-PLSQL-and-SQL-Coding-Guidelines.pdf)
 
-In 2019, Rich Soule of Insum forked these guidelines from the [Trivadis guidelines](https://trivadis.github.io/plsql-and-sql-coding-guidelines/) and changed most of the rules to comply with Insum coding standards and added many new guidelines. New rules were also suggested in the Trivadis Issues, and while many were adopted, some (and some we consider very important) were not.
-
-Originally, Trivadis published their guidelines for PL/SQL &amp; SQL in 2009 in the context of the DOAG conference in Nuremberg. Since then these guidelines have been continuously extended and improved. Now they are managed as a set of markdown files. This makes the the guidelines more adaptable for individual application needs and simplifies the continous improvement.
-
-We all stand in the shoulders of giants. Many people have participated in the creation and refinement of these guidelines. Without the efforts from Roger Troller, Jörn Kulessa, Daniela Reiner, Richard Bushnell, Andreas Flubacher, Thomas Mauch, and Philipp Salvisberg, and, more recently, many folks from the Insum Team, these guidelines wouldn't be what they are today.
+This documentation is created upon a fork of the [Insum-Styleguide](https://github.com/insum-labs/plsql-and-sql-coding-guidelines) which in turn has been a fork of the [Trivadis guidelines](https://trivadis.github.io/plsql-and-sql-coding-guidelines/).
+Currently we are on our way of adapting it to our companie's requirements.
 
 ### Why are standards important
 
@@ -28,7 +25,7 @@ Overall, the most important thing when writing good code is that you must be abl
 
 ## License
 
-The Insum PL/SQL &amp; SQL Coding Guidelines are licensed under the Apache License, Version 2.0. You may obtain a copy of the License at <http://www.apache.org/licenses/LICENSE-2.0>.
+The Primus Solutions PL/SQL &amp; SQL Coding Guidelines are licensed under the Apache License, Version 2.0. You may obtain a copy of the License at <http://www.apache.org/licenses/LICENSE-2.0>.
 
 ### Trademarks
 
@@ -42,5 +39,5 @@ The authors and publisher shall have neither liability nor responsibility to any
 
 Version | Who         | Date         | Comment
 --------|-------------|--------------|--------
-1.0     | Soule       | 2020.02.05   | Forked from the [Trivadis](https://trivadis.github.io/plsql-and-sql-coding-guidelines/) standards with many updates due to coding style and minor updates to grammar, removal of some sections, changes to titles of other sections, etc.
+1.0     | Stefan Knoll         | 2024.01.26   | Forked from the [Insum-Styleguide](https://github.com/insum-labs/plsql-and-sql-coding-guidelines/) standards with many updates due to coding style and minor updates to grammar, removal of some sections, changes to titles of other sections, etc.
 

@@ -1,14 +1,14 @@
 site_name: PL/SQL & SQL Coding Guidelines
-site_url: https://insum-labs.github.io/plsql-and-sql-coding-guidelines/
+site_url: https://stefanknoll.github.io/plsql-and-sql-coding-guidelines/
 
-repo_name: insum-labs/plsql-and-sql-coding-guidelines
-repo_url: https://github.com/insum-labs/plsql-and-sql-coding-guidelines
+repo_name: stefanknoll/plsql-and-sql-coding-guidelines
+repo_url: https://github.com/stefanknoll/plsql-and-sql-coding-guidelines.git
 edit_uri: ""
 
 theme:
-  name: 'material'
-  custom_dir: custom-theme
-  logo: images/insum-logo-inverted.png
+  name: material
+  #logo: images/insum-logo-inverted.png
+  logo: images/pdg_logo.png
   favicon: images/favicon.ico
   palette:
     primary: 'light-green'
@@ -30,9 +30,9 @@ markdown_extensions:
 extra:
   guideline_version: 1.1
   social:
-    - type: github-alt
+    - icon: fontawesome/brands/github
       link: https://github.com/insum-labs
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/insumsolutions
   search:
       language: 'en, fr, es'
@@ -41,3 +41,43 @@ plugins:
   - search
   - awesome-pages:
       collapse_single_pages: false
+  - with-pdf:
+      enabled_if_env: ENABLE_PDF_EXPORT
+      author: Stefan Knoll
+      copyright: Primus Solutions AG 2024
+      #
+      cover: true
+      #back_cover: true
+      cover_title: PL/SQL Styleguide
+      #cover_subtitle: SUBTITLE TEXT
+      #custom_template_path: TEMPLATES PATH
+      #
+      #toc_title: TOC TITLE TEXT
+      #heading_shift: false
+      #toc_level: 3
+      #ordered_chapter_level: 2
+      #excludes_children:
+      #    - 'release-notes/:upgrading'
+      #    - 'release-notes/:changelog'
+      #
+      #exclude_pages:
+      #    - 'bugs/'
+      #    - 'appendix/contribute/'
+      #convert_iframe:
+      #    - src: IFRAME SRC
+      #      img: POSTER IMAGE URL
+      #      text: ALTERNATE TEXT
+      #    - src: ...
+      #two_columns_level: 3
+      #
+      #render_js: true
+      #headless_chrome_path: headless-chromium
+      #
+      output_path: "C:/users/s.knoll/documents/eigene projekte/Primus/PLSQL-Styleguide/plsql-and-sql-coding-guidelines/docs/Primus-PLSQL-and-SQL-Coding-Guidelines.pdf"
+      # output_path: "C://users/s.knoll/dokumente/eigene\ projekte/Primus-PLSQL-and-SQL-Coding-Guidelines.pdf"
+      # output_path: "C:/users/s.knoll/dokumente/Primus-PLSQL-and-SQL-Coding-Guidelines.pdf"
+      #enabled_if_env: ENABLE_PDF_EXPORT
+      #
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true
