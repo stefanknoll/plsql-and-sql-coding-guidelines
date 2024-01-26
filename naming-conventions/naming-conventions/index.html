@@ -1,0 +1,4733 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://stefanknoll.github.io/plsql-and-sql-coding-guidelines/naming-conventions/naming-conventions/">
+      
+      
+        <link rel="prev" href="../../document-conventions/document-conventions/">
+      
+      
+        <link rel="next" href="../../coding-style/general-coding-style/">
+      
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.14">
+    
+    
+      
+        <title>Naming conventions - PL/SQL & SQL Coding Guidelines</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M6 13h8l-3.5 3.5 1.42 1.42L17.84 12l-5.92-5.92L10.5 7.5 14 11H6v2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#general_guidelines" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href="../.." title="PL/SQL &amp; SQL Coding Guidelines" class="md-header__button md-logo" aria-label="PL/SQL & SQL Coding Guidelines" data-md-component="logo">
+      
+  <img src="../../images/pdg-logo__243x78@2x.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PL/SQL & SQL Coding Guidelines
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Naming conventions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-green" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stefanknoll/plsql-and-sql-coding-guidelines.git" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stefanknoll/plsql-and-sql-coding-guidelines
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="PL/SQL &amp; SQL Coding Guidelines" class="md-nav__button md-logo" aria-label="PL/SQL & SQL Coding Guidelines" data-md-component="logo">
+      
+  <img src="../../images/pdg-logo__243x78@2x.png" alt="logo">
+
+    </a>
+    PL/SQL & SQL Coding Guidelines
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stefanknoll/plsql-and-sql-coding-guidelines.git" title="Zum Repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    stefanknoll/plsql-and-sql-coding-guidelines
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document-conventions/document-conventions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Document conventions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Naming conventions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Naming conventions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general_guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Guidelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming_conventions_for_plsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming Conventions for PL/SQL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database_object_naming_conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Object Naming Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Object Naming Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collection_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collection Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dml_instead_of_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      DML / Instead of Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreign Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synonym" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synonym
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surrogate_key_columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surrogate Key Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary_table_global_temporary_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporary Table (Global Temporary Table)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unique Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Coding style
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Coding style
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding-style/general-coding-style/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General coding style
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coding-style/coding-style-comments/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding style comments
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Language Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Language Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1010/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1030/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1030
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1040/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1040
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1050/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1050
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1060/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1060
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/1-general/g-1070/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 1070
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Variables &amp; Types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Variables &amp; Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2110/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2110
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2120/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2120
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2130
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2140/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2140
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2150/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2150
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2160/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2160
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2170/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2170
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2180/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2180
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2185/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2185
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/1-general/g-2190/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2190
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Numeric Data Types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Numeric Data Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/2-numeric-data-types/g-2220/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2220
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/2-numeric-data-types/g-2230/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2230
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Character Data Types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Character Data Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/3-character-data-types/g-2310/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2310
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/3-character-data-types/g-2320/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2320
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/3-character-data-types/g-2330/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2330
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/3-character-data-types/g-2340/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2340
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Boolean Data Types
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Boolean Data Types
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/4-boolean-data-types/g-2410/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2410
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Large Objects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Large Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/2-variables-and-types/5-large-objects/g-2510/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 2510
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    DML &amp; SQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            DML &amp; SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3110/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3110
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3120/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3120
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3130
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3140/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3140
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3150/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3150
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3160/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3160
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3170/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3170
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3180/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3180
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3190/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3190
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/1-general/g-3200/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3200
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    BULK Operations
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            BULK Operations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/3-dml-and-sql/2-bulk-operations/g-3210/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 3210
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Control Structures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Control Structures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_1" id="__nav_4_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CURSOR
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            CURSOR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/1-cursor/g-4110/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4110
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/1-cursor/g-4120/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4120
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/1-cursor/g-4130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4130
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/1-cursor/g-4140/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4140
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_2" id="__nav_4_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CASE / IF / DECODE / NVL / NVL2 / COALESCE
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            CASE / IF / DECODE / NVL / NVL2 / COALESCE
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/2-case-if-decode-nvl-nvl2-coalesce/g-4210/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4210
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/2-case-if-decode-nvl-nvl2-coalesce/g-4220/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4220
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/2-case-if-decode-nvl-nvl2-coalesce/g-4230/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4230
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/2-case-if-decode-nvl-nvl2-coalesce/g-4240/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4240
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4_3" id="__nav_4_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Flow Control
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Flow Control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4310/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4310
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4320/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4320
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4330/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4330
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4340/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4340
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4350/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4350
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4360/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4360
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4370/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4370
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4375/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4375
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4380/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4380
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4385/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4385
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4390/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4390
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/4-control-structures/3-flow-control/g-4395/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 4395
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Exception Handling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Exception Handling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5010/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5030/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5030
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5040/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5040
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5050/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5050
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5060/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5060
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/5-exception-handling/g-5070/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 5070
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Dynamic SQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_6">
+            <span class="md-nav__icon md-icon"></span>
+            Dynamic SQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/6-dynamic-sql/g-6010/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 6010
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/6-dynamic-sql/g-6020/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 6020
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/6-dynamic-sql/g-6030/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 6030
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stored Objects
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7">
+            <span class="md-nav__icon md-icon"></span>
+            Stored Objects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_1" id="__nav_4_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/1-general/g-7110/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7110
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/1-general/g-7120/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7120
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/1-general/g-7130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7130
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/1-general/g-7140/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7140
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/1-general/g-7150/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7150
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_2" id="__nav_4_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Packages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            Packages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/2-packages/g-7210/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7210
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/2-packages/g-7220/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7220
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/2-packages/g-7230/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7230
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/2-packages/g-7240/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7240
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/2-packages/g-7250/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7250
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_3" id="__nav_4_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Procedures
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            Procedures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/3-procedures/g-7310/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7310
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/3-procedures/g-7320/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7320
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_4" id="__nav_4_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Functions
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Functions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7410/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7410
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7420/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7420
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7430/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7430
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7440/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7440
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7450/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7450
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/4-functions/g-7460/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7460
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_5" id="__nav_4_7_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Oracle Supplied Packages
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            Oracle Supplied Packages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/5-oracle-supplied-packages/g-7510/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7510
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/6-object-types/object-types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_7" id="__nav_4_7_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Triggers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_7">
+            <span class="md-nav__icon md-icon"></span>
+            Triggers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/7-triggers/g-7710/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7710
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/7-triggers/g-7720/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7720
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/7-triggers/g-7730/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7730
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_7_8" id="__nav_4_7_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Sequences
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_7_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_7_8">
+            <span class="md-nav__icon md-icon"></span>
+            Sequences
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/7-stored-objects/8-sequences/g-7810/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 7810
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Patterns
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8">
+            <span class="md-nav__icon md-icon"></span>
+            Patterns
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_1" id="__nav_4_8_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Checking the Number of Rows
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            Checking the Number of Rows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/1-checking-the-number-of-rows/g-8110/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8110
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/1-checking-the-number-of-rows/g-8120/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8120
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_2" id="__nav_4_8_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Access objects of foreign application schemas
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Access objects of foreign application schemas
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/2-access-objects-of-foreign-application-schemas/g-8210/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8210
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_3" id="__nav_4_8_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Validating input parameter size
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            Validating input parameter size
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/3-validating-input-parameter-size/g-8310/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8310
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_4" id="__nav_4_8_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ensure single execution at a time of a program unit
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ensure single execution at a time of a program unit
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/4-ensure-single-execution-at-a-time-of-a-program-unit/g-8410/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8410
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_8_5" id="__nav_4_8_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Use dbms_application_info package to follow progress of a process
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_8_5">
+            <span class="md-nav__icon md-icon"></span>
+            Use dbms_application_info package to follow progress of a process
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language-usage/8-patterns/5-use-dbms-application-info-package-to-follow-progress-of-a-process/g-8510/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    G 8510
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-reviews/code-reviews/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Code reviews
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general_guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Guidelines
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming_conventions_for_plsql" class="md-nav__link">
+    <span class="md-ellipsis">
+      Naming Conventions for PL/SQL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database_object_naming_conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Object Naming Conventions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Object Naming Conventions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collection_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collection Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Column
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dml_instead_of_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      DML / Instead of Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreign_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Foreign Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#primary_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sequence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synonym" class="md-nav__link">
+    <span class="md-ellipsis">
+      Synonym
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      System Trigger
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#surrogate_key_columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Surrogate Key Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temporary_table_global_temporary_table" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temporary Table (Global Temporary Table)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unique_key_constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unique Key Constraint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view" class="md-nav__link">
+    <span class="md-ellipsis">
+      View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Naming conventions</h1>
+
+<h3 id="general_guidelines">General Guidelines<a class="headerlink" href="#general_guidelines" title="Permanent link">#</a></h3>
+<ol>
+<li>Never use names with a leading numeric character.</li>
+<li>Always choose meaningful and specific names.</li>
+<li>Avoid using abbreviations. </li>
+<li>If abbreviations are used, they must be widely known and accepted. </li>
+<li>Create a glossary with all accepted abbreviations.</li>
+<li>Never use ORACLE keywords as names. A list of ORACLEs keywords may be found in the dictionary view <code>V$RESERVED_WORDS</code>.</li>
+<li>Avoid adding redundant or meaningless prefixes and suffixes to identifiers.<br/>Example: <code>CREATE TABLE emp_table</code>.</li>
+<li>Always use one spoken language (e.g. English, German, French) for all objects in your application.</li>
+<li>Always use the same names for elements with the same meaning.</li>
+</ol>
+<h3 id="naming_conventions_for_plsql">Naming Conventions for PL/SQL<a class="headerlink" href="#naming_conventions_for_plsql" title="Permanent link">#</a></h3>
+<p>In general, ORACLE is not case sensitive with names. A variable named personname is equal to one named PersonName, as well as to one named PERSONNAME. Some products (e.g. TMDA by Trivadis, APEX, OWB) put each name within double quotes (&quot;) so ORACLE will treat these names to be case sensitive. Using case sensitive variable names force developers to use double quotes for each reference to the variable. Our recommendation is to write all names in lowercase and to avoid double quoted identifiers.</p>
+<p>A widely used convention is to follow a <code>{prefix}variablecontent{suffix}</code> pattern.</p>
+<p>The following table shows a <em>possible</em> set of naming conventions. </p>
+<table>
+<thead>
+<tr>
+<th>Identifier</th>
+<th>Prefix</th>
+<th>Suffix</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Global Variable</td>
+<td><code>g_</code></td>
+<td></td>
+<td><code>g_version</code></td>
+</tr>
+<tr>
+<td>Local Variable</td>
+<td><code>l_</code></td>
+<td></td>
+<td><code>l_version</code></td>
+</tr>
+<tr>
+<td>Constants *</td>
+<td><code>k_</code></td>
+<td></td>
+<td><code>k_employee_permanent</code></td>
+</tr>
+<tr>
+<td>Record</td>
+<td><code>r_</code></td>
+<td></td>
+<td><code>r_employee</code></td>
+</tr>
+<tr>
+<td>Array / Table</td>
+<td><code>t_</code></td>
+<td></td>
+<td><code>t_employee</code></td>
+</tr>
+<tr>
+<td>Object</td>
+<td><code>o_</code></td>
+<td></td>
+<td><code>o_employee</code></td>
+</tr>
+<tr>
+<td>Cursor Parameter</td>
+<td><code>p_</code></td>
+<td></td>
+<td><code>p_empno</code></td>
+</tr>
+<tr>
+<td>In Parameter</td>
+<td><code>p_</code> | <code>in_</code></td>
+<td></td>
+<td><code>p_empno</code></td>
+</tr>
+<tr>
+<td>Out Parameter</td>
+<td><code>x_</code> | <code>out_</code></td>
+<td></td>
+<td><code>x_ename</code></td>
+</tr>
+<tr>
+<td>In/Out Parameter</td>
+<td><code>x_</code> | <code>io_</code></td>
+<td></td>
+<td><code>io_employee</code></td>
+</tr>
+<tr>
+<td>Record Type Definitions</td>
+<td><code>r_</code></td>
+<td><code>_type</code></td>
+<td><code>r_employee_type</code></td>
+</tr>
+<tr>
+<td>Array/Table Type Definitions</td>
+<td><code>t_</code></td>
+<td><code>_type</code></td>
+<td><code>t_employee_type</code></td>
+</tr>
+<tr>
+<td>Exception</td>
+<td><code>e_</code></td>
+<td></td>
+<td><code>e_employee_exists</code></td>
+</tr>
+<tr>
+<td>Subtypes</td>
+<td></td>
+<td><code>_type</code></td>
+<td><code>big_string_type</code></td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td></td>
+<td><code>_cur</code></td>
+<td><code>employee_cur</code></td>
+</tr>
+</tbody>
+</table>
+<p>* Why k_ instead of c_ for constants? A k is hard (straight lines, hard sound when pronouced in English) while a c is soft (curved lines and soft sound when pronounced in English). C also has the possibility of being vague (some folks use c_ for cursors) and sounds changable... Also, very big companies (like Google in their coding standards) use k as a prefix for constants.</p>
+<h3 id="database_object_naming_conventions">Database Object Naming Conventions<a class="headerlink" href="#database_object_naming_conventions" title="Permanent link">#</a></h3>
+<p>Never enclose object names (table names, column names, etc.) in double quotes to enforce mixed case or lower case object names in the data dictionary.</p>
+<p>Edition Based Redefinition (EBR) is one major exception to this guideline. When naming tables that will be covered by editioning views, it is preferable to name the covered table in lower case begining with an underscore (for example: <code>"_employee"</code>). The base table will be covered by an editioning view that has the name <code>employee</code>. This greatly simplifies migration from non-EBR systems to EBR systems since all existing code already references data stored in <code>employee</code>. "Embracing the abomination of forced lower case names" highlights the fact that these objects shouldn't be directly referenced (execpt, obviously, by forward and reverse cross edition triggers during edition migration, and simple auditing/surrogate key triggers, if they are used). Since developers and users should only be referencing data through editioning views (which to them are effectively the tables of the applications) they won't be tempted to use the base table. In addition, when using tools to look at the list of tables, all editioning view covered tables will be aligned together and thus clearly delinated from non-covered tables.</p>
+<h4 id="collection_type">Collection Type<a class="headerlink" href="#collection_type" title="Permanent link">#</a></h4>
+<p>A collection type should include the name of the collected objects in their name. Furthermore, they should have the suffix <code>_ct</code> to identify it as a collection.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_ct</code></li>
+<li><code>order_ct</code></li>
+</ul>
+<h4 id="column">Column<a class="headerlink" href="#column" title="Permanent link">#</a></h4>
+<p>Singular name of what is stored in the column (unless the column data type is a collection, in this case you use plural names)</p>
+<p>Add a useful comment to the database dictionary for every column.</p>
+<h4 id="dml_instead_of_trigger">DML / Instead of Trigger<a class="headerlink" href="#dml_instead_of_trigger" title="Permanent link">#</a></h4>
+<p>Choose a naming convention that includes:</p>
+<p>either</p>
+<ul>
+<li>the name of the object the trigger is added to,</li>
+<li>the activity done by the trigger,</li>
+<li>the suffix <code>_trg</code></li>
+</ul>
+<p>or</p>
+<ul>
+<li>the name of the object the trigger is added to,</li>
+<li>any of the triggering events:<ul>
+<li><code>_br_iud</code> for Before Row on Insert, Update and Delete</li>
+<li><code>_io_id</code> for Instead of Insert and Delete</li>
+</ul>
+</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>employee_br_iud</code></li>
+<li><code>order_audit_trg</code></li>
+<li><code>order_journal_trg</code></li>
+</ul>
+<h4 id="foreign_key_constraint">Foreign Key Constraint<a class="headerlink" href="#foreign_key_constraint" title="Permanent link">#</a></h4>
+<p>Table name followed by referenced table name followed by a <code>_fk</code> and an optional number suffix. If working on a pre-12.2 database, then you will probably end up being forced into abbreviations due to short object name lengths in older databases.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_department_fk</code></li>
+<li><code>sct_icmd_ic_fk1</code> --Pre 12.2 database</li>
+</ul>
+<h4 id="function">Function<a class="headerlink" href="#function" title="Permanent link">#</a></h4>
+<p>Name is built from a verb followed by a noun in general. Nevertheless, it is not sensible to call a function <code>get_...</code> as a function always gets something.</p>
+<p>The name of the function should answer the question “What is the outcome of the function?”</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Example: <code>employee_by_id</code></p>
+<p>If more than one function provides the same outcome, you have to be more specific with the name.</p>
+<h4 id="index">Index<a class="headerlink" href="#index" title="Permanent link">#</a></h4>
+<p>Indexes serving a constraint (primary, unique or foreign key) are named accordingly. </p>
+<p>Other indexes should have the name of the table and columns (or their purpose) in their name and should also have <code>_idx</code> as a suffix.</p>
+<h4 id="object_type">Object Type<a class="headerlink" href="#object_type" title="Permanent link">#</a></h4>
+<p>The name of an object type is built by its content (singular) followed by a <code>_ot</code> suffix.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Example: <code>employee_ot</code></p>
+<h4 id="package">Package<a class="headerlink" href="#package" title="Permanent link">#</a></h4>
+<p>Name is built from the content that is contained within the package.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_api</code> - API for the employee table</li>
+<li><code>logger</code> - Utilities including logging support</li>
+<li><code>constants</code> - Constants for use across a project</li>
+<li><code>types</code> - Types for use across a project</li>
+</ul>
+<h4 id="primary_key_constraint">Primary Key Constraint<a class="headerlink" href="#primary_key_constraint" title="Permanent link">#</a></h4>
+<p>Table name or table abbreviation followed by the suffix <code>_pk</code>.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_pk</code></li>
+<li><code>department_pk</code></li>
+<li><code>contract_pk</code></li>
+</ul>
+<h4 id="procedure">Procedure<a class="headerlink" href="#procedure" title="Permanent link">#</a></h4>
+<p>Name is built from a verb followed by a noun. The name of the procedure should answer the question “What is done?” </p>
+<p>Procedures and functions are often named with underscores between words because some editors write all letters in uppercase in the object tree, so it is difficult to read them.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>calculate_salary</code></li>
+<li><code>set_hiredate</code></li>
+<li><code>check_order_state</code></li>
+</ul>
+<h4 id="sequence">Sequence<a class="headerlink" href="#sequence" title="Permanent link">#</a></h4>
+<p>Version: Pre 12 only, 12 and later use identity columns, or potentially even better, use a default of <code>to_number(sys_guid(), 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')</code>.</p>
+<p>Name is built from the table name the sequence serves as primary key generator and the suffix <code>_seq</code> or the purpose of the sequence followed by a <code>_seq</code>.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_seq</code></li>
+<li><code>order_number_seq</code></li>
+</ul>
+<h4 id="synonym">Synonym<a class="headerlink" href="#synonym" title="Permanent link">#</a></h4>
+<p>Synonyms should share the name with the object referenced in another schema.</p>
+<h4 id="system_trigger">System Trigger<a class="headerlink" href="#system_trigger" title="Permanent link">#</a></h4>
+<p>Name of the event the trigger is based on.</p>
+<ul>
+<li>Activity done by the trigger</li>
+<li>Suffix <code>_trg</code></li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li><code>ddl_audit_trg</code></li>
+<li><code>logon_trg</code></li>
+</ul>
+<h4 id="table">Table<a class="headerlink" href="#table" title="Permanent link">#</a></h4>
+<p>Singular name of what is contained in the table.</p>
+<p>Add a comment to the database dictionary for every table and every column in the table.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee</code></li>
+<li><code>department</code></li>
+<li><code>sct_contract</code></li>
+<li><code>sct_contract_line</code></li>
+<li><code>sct_incentive_module</code></li>
+</ul>
+<p>Reason: Singular names have the following advantages over plural names:
+1. In general, tables represent entities. Entities are singular. This encourages the art of Entity-Relationship modeling.
+2. If all table names are singular, then you don't have to know if a table has a single row or multiple rows before you use it.
+3. Plural names can be vastly different from singular names. What is the plural of news? lotus? knife? cactus? nucleus? There are so many words that are difficult and nonstandard to pluralize that it can add significant work to a project to 'figure out the plurals'.
+4. For non-native speakers of whatever language is being used for table names, point number 3 is magnified significantly.
+5. Plurals add extra unnecessary length to table names.
+6. By far the biggest reason: There is no value in going through all the work to plural a table name. SQL statements often deal with a single row from a table with multiple rows, so you can't make the argument that <code>employees</code> is better than <code>employee</code> 'because the SQL will read better'.</p>
+<p>Example (bad):
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>well_bores
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>well_bore_completions
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>well_bore_completion_components
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>well_bore_studies
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>well_bore_study_results
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>wells
+</span></code></pre></div></td></tr></table></div>
+Example (good):
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>well
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>well_bore
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>well_bore_completion
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>well_bore_completion_component
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>well_bore_study
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>well_bore_study_result
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="surrogate_key_columns">Surrogate Key Columns<a class="headerlink" href="#surrogate_key_columns" title="Permanent link">#</a></h4>
+<p>Surrogate primary key columns should be the table name with an underscore and id appended. For example: <code>employee_id</code></p>
+<p>Reason: Naming the surrogate primary key column the same name that it would have (at least 99% of the time) when used as a foreign key allows the use of the <code>using</code> clause in SQL which greatly increases readability and maintainability of SQL code. When each table has a surrogate primary key column named <code>id</code>, then <code>select</code> clauses that select multiple id columns will need aliases (more code, harder to read and maintain). Additionaly, the <code>id</code> surrogate key column means that every join will be forced into the <code>on</code> syntax which is more error-prone and harder to read than the <code>using</code> clause.</p>
+<p>Example (bad):
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>select e.id as employee_id
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>      ,d.id as department_id
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>      ,e.last_name
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>      ,d.name
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>  from employee e
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>  join department d on (e.department_id = d.id);
+</span></code></pre></div></td></tr></table></div></p>
+<p>Example (good):
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Text Only</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>select e.employee_id
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>      ,department_id
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>      ,e.last_name
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>      ,d.name
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>  from employee e
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>  join department d using (department_id);
+</span></code></pre></div></td></tr></table></div></p>
+<h4 id="temporary_table_global_temporary_table">Temporary Table (Global Temporary Table)<a class="headerlink" href="#temporary_table_global_temporary_table" title="Permanent link">#</a></h4>
+<p>Naming as described for tables.</p>
+<p>Ideally suffixed by <code>_gtt</code></p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_gtt</code></li>
+<li><code>contract_gtt</code></li>
+</ul>
+<h4 id="unique_key_constraint">Unique Key Constraint<a class="headerlink" href="#unique_key_constraint" title="Permanent link">#</a></h4>
+<p>Table name followed by the role of the unique key constraint, a <code>_uk</code> and an optional number suffix, if necessary.</p>
+<p>Examples:</p>
+<ul>
+<li><code>employee_name_uk</code></li>
+<li><code>department_deptno_uk</code></li>
+<li><code>sct_contract_uk</code></li>
+</ul>
+<h4 id="view">View<a class="headerlink" href="#view" title="Permanent link">#</a></h4>
+<p>Singular name of what is contained in the view.</p>
+<p>Ideally, suffixed by an indicator identifying the object as a view like <code>_v</code> or <code>_vw</code> (mostly used, when a 1:1 view layer lies above the table layer, but <em>not</em> used for editioning views)</p>
+<p>Add a comment to the database dictionary for every view and every column.</p>
+<p>Optionally prefixed by a project abbreviation.</p>
+<p>Examples:</p>
+<ul>
+<li><code>active_order</code> -- A view that selects only active orders from the order table</li>
+<li><code>order_v</code> -- A view to the order table</li>
+<li><code>order</code> -- An editioning view that covers the <code>"_order"</code> base table</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Fußzeile" >
+        
+          
+          <a href="../../document-conventions/document-conventions/" class="md-footer__link md-footer__link--prev" aria-label="Zurück: Document conventions">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Zurück
+              </span>
+              <div class="md-ellipsis">
+                Document conventions
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../coding-style/general-coding-style/" class="md-footer__link md-footer__link--next" aria-label="Weiter: General coding style">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Weiter
+              </span>
+              <div class="md-ellipsis">
+                General coding style
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Primus Solutions AG 2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/primus-delphi-group" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/channel/UC2FwygVDwhSOCiF7yn3UUtQ" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.footer", "navigation.path", "content.code.select", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.cd18aaf1.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
