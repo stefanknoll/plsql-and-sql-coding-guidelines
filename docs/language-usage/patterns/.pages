@@ -1,0 +1,7 @@
+title: Patterns
+nav:
+    - checking-the-number-of-rows
+    - access-objects-of-foreign-application-schemas
+    - validating-input-parameter-size
+    - ensure-single-execution-at-a-time-of-a-program-unit
+    - use-dbms-application-info-package-to-follow-progress-of-a-process

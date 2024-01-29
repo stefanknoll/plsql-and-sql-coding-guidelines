@@ -1,1 +1,10 @@
 title: Language Usage
+nav:
+    - general
+    - variables-and-types
+    - dml-and-sql
+    - control-structures
+    - exception-handling
+    - dynamic-sql
+    - stored-objects
+    - patterns
